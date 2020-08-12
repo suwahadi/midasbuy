@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Lato-Bold;
+    font-weight: 400;
+    src: local('Lato Bold'),local('Lato-Bold'),url(../fonts/Lato-Bold.woff2) format('woff2'),url(../fonts/Lato-Bold.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: Lato-Italic;
+    font-weight: 400;
+    src: local('Lato Italic'),local('Lato-Italic'),url(../fonts/Lato-Italic.woff2) format('woff2'),url(../fonts/Lato-Italic.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: Lato-Light;
+    font-weight: 400;
+    src: local('Lato Light'),local('Lato-Light'),url(../fonts/Lato-Light.woff2) format('woff2'),url(../fonts/Lato-Light.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: Lato-Medium;
+    font-weight: 400;
+    src: local('Lato Medium'),local('Lato-Medium'),url(../fonts/Lato-Medium.woff2) format('woff2'),url(../fonts/Lato-Medium.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: Lato-Regular;
+    font-weight: 400;
+    src: local('Lato Regular'),local('Lato-Regular'),url(../fonts/Lato-Regular.woff2) format('woff2'),url(../fonts/Lato-Regular.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: Lato-Semibold;
+    font-weight: 400;
+    src: local('Lato Semibold'),local('Lato-Semibold'),local('Lato Semi Bold'),url(../fonts/Lato-Semibold.woff2) format('woff2'),url(../fonts/Lato-Semibold.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: NotoSans-Bold;
+    font-weight: 400;
+    src: local('NotoSans Bold'),local('NotoSans-Bold'),url(../fonts/NotoSans-Bold.woff2) format('woff2'),url(../fonts/NotoSans-Bold.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: NotoSans-Italic;
+    font-weight: 400;
+    src: local('NotoSans Italic'),local('NotoSans-Italic'),url(../fonts/NotoSans-Italic.woff2) format('woff2'),url(../fonts/NotoSans-Italic.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: NotoSans-Light;
+    font-weight: 400;
+    src: local('NotoSans Light'),local('NotoSans-Light'),url(../fonts/NotoSans-Light.woff2) format('woff2'),url(../fonts/NotoSans-Light.woff) format('woff');
+    font-display: swap}
+@font-face {
+    font-family: NotoSans-Regular;
+    font-weight: 400;
+    src: local('NotoSans Regular'),local('NotoSans-Regular'),url(../fonts/NotoSans-Regular.woff2) format('woff2'),url(../fonts/NotoSans-Regular.woff) format('woff');
+    font-display: swap}

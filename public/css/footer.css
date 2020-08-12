@@ -1,0 +1,180 @@
+.contact-text,.footer__google-copyright {
+    white-space: normal;
+    word-break: break-word}
+.custom--grab .footer-container .international-container,.custom--grab .footer-container .right-blocks-container,.custom--grab .footer-container .socials-container {
+    display: none}
+footer {
+    font-family: Lato-Regular,sans-serif}
+.international__country-name,.legal-content-container>a,.social-title,.support-title {
+    font-family: Lato-Bold}
+.footer-container {
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    display: flex;
+    padding: 10px;
+    width: 100%}
+.footer-area {
+    width: 100%;
+    max-width: 680px;
+    margin: auto}
+.theme-page--product-page .footer-area {
+    max-width: 950px}
+.theme-page--all-results .footer-area {
+    max-width: 960px}
+.footer__social-media-container {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 128px;
+    margin: auto;
+    direction: ltr}
+.social-icon-container {
+    width: 33.3333%;
+    padding: 4px}
+.left-blocks-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center}
+.right-blocks-container {
+    text-align: center;
+    display: block}
+.international-container,.socials-container,.support-container {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 10px 8px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px}
+.contact-icon,.contact-text,.social-icon {
+    display: inline-block;
+    vertical-align: middle}
+.socials-container,.support-container {
+    width: 46%;
+    max-width: 132px;
+    min-height: 84px}
+.international-container {
+    min-height: 84px;
+    max-width: 200px;
+    min-width: 125px}
+.social-title,.support-title {
+    font-size: 12px;
+    margin: 0;
+    padding-bottom: 3px;
+    color: #464646;
+    width: 100%;
+    text-align: center}
+.social-icon {
+    width: 24px;
+    align-self: center}
+.contact-text,.support-link {
+    text-decoration: none}
+.support-icons {
+    max-width: 96px;
+    width: 100%;
+    margin: auto;
+    padding: 6px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    direction: ltr}
+.support-icons .social-icon {
+    width: 20px}
+.support-link {
+    color: #2e33aa;
+    direction: ltr;
+    padding-top: 6px}
+.contact-text {
+    padding-left: 6px;
+    font-size: 12px;
+    max-width: 88px}
+.custom--grab .contact-text {
+    max-width: 120px}
+.contact-icon>svg {
+    height: 18px;
+    fill: #fa6c2c}
+.footer__country-flag {
+    background-color: #f3f3f3!important}
+.international-flag-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none}
+.international__country-name {
+    padding-top: 8px;
+    font-size: 13px;
+    color: #464646}
+.legal-content-container {
+    text-align: center}
+.legal-content-container>a {
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 1px 0;
+    color: #666}
+.copyright-container {
+    font-size: 12px;
+    padding: 15px 0;
+    color: #666;
+    direction: ltr}
+.footer__google-copyright {
+    font-family: Lato-Semibold;
+    font-size: 12px;
+    color: #666;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    width: 100%}
+@media screen and (min-width: 600px) {
+    .international-container {
+    min-height: 84px;
+    max-width: 165px}
+.socials-container,.support-container {
+    width: 46%;
+    max-width: 175px;
+    min-height: 84px}
+.social-icon {
+    width: 26px}
+.support-icons .social-icon {
+    width: 22px}
+.contact-text {
+    max-width: 100px}
+}
+@media screen and (min-width: 767px) {
+    .footer-area {
+    white-space: nowrap}
+.copyright-container,.legal-content-container {
+    text-align: right;
+    display: block;
+    width: 100%;
+    white-space: normal}
+.right-blocks-container {
+    width: 30%;
+    padding-right: 12px;
+    align-items: center;
+    text-align: right}
+.left-blocks-container {
+    width: 70%;
+    justify-content: normal}
+.left-blocks-container,.right-blocks-container {
+    display: inline-flex;
+    flex-flow: wrap}
+.international-container,.socials-container,.support-container {
+    margin: 15px 8px}
+.socials-container,.support-container {
+    max-width: 150px;
+    word-break: break-word;
+    white-space: normal}
+.support-icons .social-icon {
+    width: 24px}
+.footer__google-copyright {
+    text-align: right;
+    width: 100%}
+}
