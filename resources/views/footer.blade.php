@@ -41,4 +41,4 @@
     Copyright &copy; 2020 {{config('webname')}} - {{config('slogan')}}
 </div>
 
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/footer.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/footers.css')}}" />

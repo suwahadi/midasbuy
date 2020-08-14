@@ -30,7 +30,7 @@
 <script type="text/javascript" src="{{URL::asset('js/lozad.min.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/fonts.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/infobar.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/topnav.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/top-nav.css')}}" />
 <script type="text/javascript" src="{{URL::asset('js/shop-topnav.js')}}"></script>
 
 <!-- OG Tags Start -->

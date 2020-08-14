@@ -6,10 +6,6 @@
 
 <div id="product-page__container" class="product-page__container">
 
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/topnav.css')}}" />
-
-<script type="text/javascript" src="{{URL::asset('js/shop-topnav.js')}}"></script>
-
 <header class="top-navbar top-nav--general" style="display: block">
     <div class="top-nav-container" style="max-width: 955px;">
         <div class="logo-container">

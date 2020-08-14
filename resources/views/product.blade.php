@@ -4,7 +4,6 @@
 
 <body class="theme-page--product-page">
 
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/topnav.css')}}" />
 <script type="text/javascript" src="{{URL::asset('js/shop-topnav.js')}}"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
