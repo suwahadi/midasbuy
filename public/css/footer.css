@@ -9,10 +9,11 @@ footer {
     font-family: Lato-Bold}
 .footer-container {
     box-sizing: border-box;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
     display: flex;
     padding: 10px;
-    width: 100%}
+    margin: 0 auto;
+    width: 760px}
 .footer-area {
     width: 100%;
     max-width: 680px;
@@ -169,7 +170,7 @@ footer {
 .international-container,.socials-container,.support-container {
     margin: 15px 8px}
 .socials-container,.support-container {
-    max-width: 150px;
+    max-width: 173px;
     word-break: break-word;
     white-space: normal}
 .support-icons .social-icon {

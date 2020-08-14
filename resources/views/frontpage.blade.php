@@ -11,13 +11,14 @@
 			<img class="logo-image theme-default__logo" src="{{config('logo')}}" alt="{{config('webname')}}" title="{{config('webname')}}"/>
 		</a>
             
-        <p class="slogan-element">{{config('slogan')}}</p>
+        {{-- <p class="slogan-element">{{config('slogan')}}</p> --}}
+
         </div>
 		<div class="search-icon-container" style="float: right;">
             @guest
-            <a href="{{url('login')}}" style = "text-decoration: none; color: #222; font-size:14px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #222; font-size:14px;">REGISTER</a>
+            <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
             @else
-                {{ Auth::user()->userid }} | <a href="{{url('profile')}}">Profile</a> | <a href="{{url('logout')}}">Logout</a>
+                <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
             @endguest
         </div>
     </div>
@@ -40,15 +41,15 @@
 		"name": "Game Populer",
 		"shortDescription": "",
 		"products": {{$products}}
-	},
+	}
 
-	"categorySection-2": {
+	{{-- "categorySection-2": {
 		"name": "Sedang Promo",
 		"shortDescription": "",
 		"products": {{$promo}}
-	},
+	}, --}}
 
-	"aboutSection": {
+	{{-- "aboutSection": {
 		"title": "{{config('webname')}}: {{config('slogan')}}",
 		"subTitle": "{{config('about')}}",
 		"content": [{
@@ -76,11 +77,11 @@
 				"subTitle": "Tim kami selalu tersedia selama 24 jam selama 7 hari penuh dalam seminggu untuk menjawab pertanyaan-pertanyaan dari kamu :)"
 			}
 		]
-	},
-	"newsBannerSection": {
+	}, --}}
+	{{-- "newsBannerSection": {
 		"title": "Latest News & Promotions",
 		"content": {{$news}}
-	}
+	} --}}
 
 }'>
 

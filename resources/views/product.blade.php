@@ -14,14 +14,15 @@
             <a href="{{url('/')}}" class="logo-container-link">
 				<img class="logo-image theme-default__logo" src="{{config('logo')}}" alt="{{config('webname')}}" title="{{config('webname')}}"/>
 			</a>
-            <p class="slogan-element">{{config('slogan')}}</p>
+            
+            {{-- <p class="slogan-element">{{config('slogan')}}</p> --}}
 
         </div>
         <div class="search-icon-container" style="float: right;">
             @guest
-            <a href="{{url('login')}}" style = "text-decoration: none; color: #222; font-size:14px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #222; font-size:14px;">REGISTER</a>
+            <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
             @else
-                {{ Auth::user()->userid }} | <a href="{{url('profile')}}">Profile</a> | <a href="{{url('logout')}}">Logout</a>
+                <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
             @endguest
         </div>
     </div>
@@ -453,7 +454,7 @@
         <br>
 
         <div class="form-input-container">
-            <input type="text" id="phone" name="phone" pattern="[0-9]{8,15}" required class="product-form-input" placeholder="Nomor HP (Contoh 081234567890)">
+            <input type="text" id="phone" name="phone" pattern="(08)\d{7,12}" required class="product-form-input" placeholder="Nomor WhatsApp (Contoh 081234567890)" title="Nomor WhatsApp harus valid, tanpa tanda hubung / tanpa spasi (Contoh: 081234567890)">
         </div>
 
         <div class="form-input-container">
