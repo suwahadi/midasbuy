@@ -75,7 +75,7 @@
     }
 </style>
 
-<section class="product-details-container">
+{{-- <section class="product-details-container">
     <div class="product-top-banner__container"><img src="{{url('storage')}}/{{$productByCode->image}}" alt="{{strtoupper($productByCode->name)}}" title="{{strtoupper($productByCode->name)}}" class="product__top-banner"></div>
         
     <div class="product__name">
@@ -103,14 +103,12 @@
         <img style="width:120px; padding-top: 5px;"src="{{URL::asset('images/google_play.png')}}" alt="Download on Google Play" title="Download on Google Play"></a></div>
         @endif
 
-</section>
+</section> --}}
 
-<main id="contents" class="main-content">
+<main id="contents" class="main-content" style="margin-top: 3%; margin-bottom: 3%; width: 100%; padding: 20px; background: transparent">
 
 <div class="section voucher">
-    <h2 class="circle">
-		<span>1</span> Pilih Voucher
-    </h2>
+    <h5 style="color: #fff">1. Pilih Nominal</h5>
 
     @auth
     <ul class="vocherSelectionList ul-denoms voucher-denom-container">
@@ -150,9 +148,7 @@
 <div class="section payment" id="form-payment" style="display: none;">
 
     @auth
-    <h2 class="circle">
-		<span>2</span>Pilih Pembayaran
-    </h2>
+    <h5 style="color: #fff">2. Metode Pembayaran</h5>
     <ul class="ul-paymentChannels">
         <li id="paymentChannel" class="payment-channel-element">
             <a markup="0" channel="0" class="payment-channel-link">
@@ -165,7 +161,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-memberr" style="color:#222;"></span>
+                        <span id="price-memberr" style="color:#fff;"></span>
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-memberr"></span>
                     </div>
@@ -176,9 +172,7 @@
     @endauth
 
     @guest
-    <h2 class="circle">
-		<span>2</span>Pilih Pembayaran
-	</h2>
+    <h5 style="color: #fff">2. Metode Pembayaran</h5>
 
     <ul class="ul-paymentChannels">
 
@@ -192,7 +186,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-bca" style="color:#222;"></span>
+                        <span id="price-bca" style="color:#fff;"></span>
                         <input id="total4" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$bca->payment_code}}"></span>
@@ -215,7 +209,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-mandiri" style="color:#222;"></span>
+                        <span id="price-mandiri" style="color:#fff;"></span>
                         <input id="total5" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$mandiri->payment_code}}"></span>
@@ -238,7 +232,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-bni" style="color:#222;"></span>
+                        <span id="price-bni" style="color:#fff;"></span>
                         <input id="total6" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$bni->payment_code}}"></span>
@@ -261,7 +255,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-bri" style="color:#222;"></span>
+                        <span id="price-bri" style="color:#fff;"></span>
                         <input id="total7" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$bri->payment_code}}"></span>
@@ -284,7 +278,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-ovo" style="color:#222;"></span>
+                        <span id="price-ovo" style="color:#fff;"></span>
                         <input id="total1" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$ovo->payment_code}}"></span>
@@ -307,7 +301,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-gopay" style="color:#222;"></span>
+                        <span id="price-gopay" style="color:#fff;"></span>
                         <input id="total8" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$gopay->payment_code}}"></span>
@@ -330,7 +324,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-indomaret" style="color:#222;"></span>
+                        <span id="price-indomaret" style="color:#fff;"></span>
                         <input id="total2" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$indomaret->payment_code}}"></span>
@@ -353,7 +347,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-alfamart" style="color:#222;"></span>
+                        <span id="price-alfamart" style="color:#fff;"></span>
                         <input id="total3" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$alfamart->payment_code}}"></span>
@@ -376,7 +370,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-telkomsel" style="color:#222;"></span>
+                        <span id="price-telkomsel" style="color:#fff;"></span>
                         <input id="total9" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$telkomsel->payment_code}}"></span>
@@ -395,12 +389,14 @@
 </div>
 
 <div class="section buy default-template" id="form-buy" style="display: none;">
-    <h2 class="circle"><span>3</span>        
-        <div class="section-title">Lengkapi Form</div>
-    </h2 >
+
+    <h5 style="color: #fff">3. Lengkapi Form</h5>
+
+    <br>
+
     <div class="form" id="formSection">
 
-    <form id="FomOrder" name="FomOrder" action="{{url('order')}}" method="POST" onsubmit="return checkForm(this);">
+    <form id="FomOrder" name="FomOrder" action="{{url('order')}}" method="POST" onsubmit="return checkForm(this);" style="background: #19214b; padding: 20px;">
 
         {{ csrf_field() }}
         
@@ -476,7 +472,7 @@
 
         <div class="email-form-btn-group">
             <div class="loader" id="submit-loader"></div>
-            <input type="submit" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Beli Sekarang" style="background: rgba(20,27,61,1);">
+            <input type="submit" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Beli Sekarang" style="background: #3a7bfc;">
         </div>
 
     </form>

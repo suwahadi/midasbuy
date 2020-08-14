@@ -85,11 +85,10 @@ body {
     margin: 50px 10px 15px;
     max-width: 640px}
 .section {
-    background-color: #fcfcfc;
+    /* background-color: #fcfcfc; */
     border-radius: 6px;
     padding: 15px;
     margin: 25px 0;
-    box-shadow: 1px 2px 3px rgba(20,27,61,1);
     animation: fadeIn ease 1s}
 @keyframes fadeIn {
     0% {
@@ -215,16 +214,15 @@ body {
     font-family: Lato-Regular,sans-serif;
     font-size: 14px}
 .form__field-instruction-text {
-    padding-right: 12px;
     font-size: 12px;
     font-family: Lato-Italic,sans-serif;
     line-height: 15px;
     margin: 5px 0 0;
-    color: #333}
+    color: #fff}
 .circle {
     font-family: Lato-Semibold,sans-serif;
     font-size: 20px;
-    color: #333;
+    color: #fff;
     padding-left: 55px;
     margin-top: -12px;
     margin-bottom: 8px}
@@ -279,17 +277,19 @@ body {
 .voucher-list-element>a {
     display: table-cell;
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-size: 14px;
     font-family: Lato-Regular,sans-serif;
     text-align: center;
     padding: 3px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     height: 54px;
     word-break: break-word;
     position: relative;
-    overflow: hidden}
+    overflow: hidden;
+    background: #19214b;}
+.voucher-list-element>a:hover {
+    color: #fff;
+    }
 #element-check-label,.voucher-list-element>a+.errMessage {
     position: absolute;
     text-align: center;
@@ -338,15 +338,18 @@ body {
 .disabled-element {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%)}
-.payment-channel-element {
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    .payment-channel-element {
+    display: inline-block;
     margin: 10px 0;
-    cursor: pointer}
+    cursor: pointer;
+    background: #19214b;
+    color: #fff;
+    width: 32%;
+    }
 .payment-channel-element img.check {
     display: none}
 .payment-channel-link {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     flex-wrap: wrap;
     position: relative;
@@ -436,8 +439,8 @@ body {
 .payment-tagline {
     margin: 0}
 .emailOptional {
-    font-size: 14px;
-    color: #333;
+    font-size: 13px;
+    color: #fff;
     padding: 10px 5px;
     margin: 0;
     display: block}
