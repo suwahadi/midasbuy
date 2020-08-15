@@ -82,12 +82,12 @@ body {
     width: auto;
     margin: auto}
 .main-content {
-    margin: 50px 10px 15px;
+    /* margin: 50px 10px 15px; */
     max-width: 640px}
 .section {
     /* background-color: #fcfcfc; */
-    border-radius: 6px;
-    padding: 15px;
+    /* border-radius: 6px; */
+    /* padding: 15px; */
     margin: 25px 0;
     animation: fadeIn ease 1s}
 @keyframes fadeIn {
@@ -329,7 +329,7 @@ body {
     text-align: center;
     color: #666}
 .price,.price_label {
-    text-align: left}
+    text-align: center}
 .active #element-check-label {
     display: block}
 .ul-paymentChannels {
@@ -340,11 +340,11 @@ body {
     filter: grayscale(100%)}
     .payment-channel-element {
     display: inline-block;
-    margin: 10px 0;
+    margin: 5px 3px 12px 3px;
     cursor: pointer;
     background: #19214b;
     color: #fff;
-    width: 32%;
+    width: 24%;
     }
 .payment-channel-element img.check {
     display: none}
@@ -358,11 +358,11 @@ body {
     justify-content: space-between}
 .payment-channel-container {
     display: flex;
-    width: 64%;
+    /* width: 64%; */
     justify-content: space-between;
     align-items: center}
 .payment-logo-container {
-    margin: 0;
+    margin: 0 auto;
     padding: 15px 7px}
 .logo,.price {
     padding-left: 10px}
@@ -417,7 +417,7 @@ body {
     font-size: 10px;
     font-family: Lato-Bold,sans-serif;
     color: #999;
-    width: 36%;
+    width: 100%;
     padding-left: 8px;
     padding-right: 4px}
 .denom-disabled {
@@ -437,7 +437,8 @@ body {
     display: block;
     width: 100%}
 .payment-tagline {
-    margin: 0}
+    margin: 0;
+    text-align: center;}
 .emailOptional {
     font-size: 13px;
     color: #fff;
@@ -865,8 +866,8 @@ ul.errorMessage__container li {
     font-size: 11px;
     margin-left: 15px}
 .payment-price-container {
-    text-align: right;
-    width: 32%}
+    text-align: center;
+    width: 100%}
 .denom-disabled {
     max-width: unset;
     text-align: left;
@@ -1048,7 +1049,8 @@ ul.errorMessage__container li {
     .product-details-container {
     width: 36%}
 .main-content {
-    width: 64%}
+    width: 100%
+}
 .voucher-list-element {
     width: 33.33333%}
 .voucher-list-element>a {
@@ -1100,4 +1102,15 @@ ul.errorMessage__container li {
 @media screen and (orientation: landscape) {
     .product-description-checkbox: checked+label+.product__description {
     transition: none}
+}
+
+@media screen and (max-width: 600px) {
+    .payment-channel-element {
+        display: inline-block;
+        margin: 2px 2px 15px 2px;
+        cursor: pointer;
+        background: #19214b;
+        color: #fff;
+        width: 31%;
+    }
 }

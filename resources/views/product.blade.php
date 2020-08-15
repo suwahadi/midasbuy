@@ -105,7 +105,7 @@
 
 </section> --}}
 
-<main id="contents" class="main-content" style="margin-top: 3%; margin-bottom: 3%; width: 100%; padding: 20px; background: transparent">
+<main id="contents" class="main-content" style="margin-top: 3%; margin-bottom: 3%; background: transparent">
 
 <div class="section voucher">
     <h5 style="color: #fff">1. Pilih Nominal</h5>
@@ -131,7 +131,7 @@
         @php $i = 1; @endphp
         @foreach ($produkpluck as $cp)
             <li id="denomination" class="voucher-list-element" onclick="show{{$i}}();">
-                <a onclick="cekDenom(this);" id="{{$cp->id}}" code="{{$cp->code}}" style="cursor:pointer">
+                <a onclick="cekDenom(this);" id="{{$cp->id}}" code="{{$cp->code}}" style="cursor:pointer;">
                     {{$cp->name}}
                     <span id="check-{{$i}}"> L </span>
                 </a>

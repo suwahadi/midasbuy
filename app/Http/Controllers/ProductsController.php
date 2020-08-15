@@ -186,21 +186,21 @@ class ProductsController extends Controller
             }
                 $memberr = 'Harga:<br>Rp '.number_format($price, 0);
                 $input0 = $price;
-                $ovo = 'Harga:<br>Rp '.(number_format($price+$markovo, 0));
+                $ovo = 'Rp '.(number_format($price+$markovo, 0));
                 $input1 = ($price+$markovo);
-                $indomaret = 'Harga:<br>Rp '.(number_format($price+$markindomaret, 0));
+                $indomaret = 'Rp '.(number_format($price+$markindomaret, 0));
                 $input2 = ($price+$markindomaret);
-                $alfamart = 'Harga:<br>Rp '.(number_format($price+$markalfamart, 0));
+                $alfamart = 'Rp '.(number_format($price+$markalfamart, 0));
                 $input3 = ($price+$markalfamart);
-                $bca = 'Harga:<br>Rp '.(number_format($price+$markbca, 0));
+                $bca = 'Rp '.(number_format($price+$markbca, 0));
                 $input4 = ($price+$markbca);
-                $mandiri = 'Harga:<br>Rp '.(number_format($price+$markmandiri, 0));
+                $mandiri = 'Rp '.(number_format($price+$markmandiri, 0));
                 $input5 = ($price+$markmandiri);
-                $bni = 'Harga:<br>Rp '.(number_format($price+$markbni, 0));
+                $bni = 'Rp '.(number_format($price+$markbni, 0));
                 $input6 = ($price+$markbni);
-                $bri = 'Harga:<br>Rp '.(number_format($price+$markbri, 0));
+                $bri = 'Rp '.(number_format($price+$markbri, 0));
                 $input7 = ($price+$markbri);
-                $gopay = 'Harga:<br>Rp '.(number_format($price+$markgopay, 0));
+                $gopay = 'Rp '.(number_format($price+$markgopay, 0));
                 $input8 = ($price+$markgopay);
 
                 $total = $price+($price*$marktelkomsel);
@@ -210,9 +210,7 @@ class ProductsController extends Controller
                 } else {
                     $akhir = $total + (1000-$ratusan);
                 }
-                //$telkomsel = 'Harga:<br>Rp '.(number_format($price+($price*$marktelkomsel), 0));
-                //$input9 = $price+($price*$marktelkomsel);
-                $telkomsel = 'Harga:<br>Rp '. number_format($akhir, 0);
+                $telkomsel = 'Rp '. number_format($akhir, 0);
                 $input9 = $akhir;
 
                 $productCode = $prd->code;
