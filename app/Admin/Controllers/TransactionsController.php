@@ -62,12 +62,14 @@ class TransactionsController extends AdminController
             2 => 'SUCCESS',
             3 => 'FAILED',
             4 => 'EXPIRED',
+            5 => 'API PROCESS',
         ], 'Unknown')->dot([
             0 => 'warning',
             1 => 'info',
             2 => 'success',
             3 => 'danger',
             4 => 'default',
+            5 => 'info',
         ], 'warning');
 
         $grid->column('status1', __('Status'))->display (function () {
@@ -79,8 +81,10 @@ class TransactionsController extends AdminController
                 $textstatus = 'SUCCESS';
             }elseif ($this->status == 3) {
                 $textstatus = 'FAILED';
-            } else {
+            }elseif ($this->status == 4) {
                 $textstatus = 'EXPIRED';
+            } else {
+                $textstatus = 'API PROCESS';
             }
             return $textstatus;
         })->setAttributes(['style' => 'display:none;']); // hide
@@ -104,7 +108,7 @@ class TransactionsController extends AdminController
             $filter->like('total', 'Total');
             $filter->equal('user_id', 'User')->select(\App\User::all()->sortBy('userid')->pluck('userid', 'id'));
             $filter->equal('payment_channel_id', 'Payment')->select(['0' => 'SALDO', '1' => 'GOPAY', '2' => 'OVO', '5' => 'ALFAMART', '6' => 'INDOMARET', '8' => 'BCA', '9' => 'MANDIRI', '10' => 'BNI', '11' => 'BRI', '12' => 'TELKOMSEL']);
-            $filter->equal('status')->select(['0' => 'WAITING', '1' => 'PROCESS', '2' => 'SUCCESS', '3' => 'FAILED', '4' => 'EXPIRED']);
+            $filter->equal('status')->select(['0' => 'WAITING', '1' => 'PROCESS', '2' => 'SUCCESS', '3' => 'FAILED', '4' => 'EXPIRED', '5' => 'API PROCESS']);
         });
 
         $grid->export(function ($export) {
@@ -138,8 +142,9 @@ class TransactionsController extends AdminController
     {
         $form = new Form(new Transactions());
 
-        $form->text('trx_id', __('Trans ID #'))->required()->readonly();
-        $form->text('created_at', __('Date'))->readonly();
+        $form->text('trx_id', __('ID #'))->required()->readonly();
+        $form->text('created_at', __('Created'))->readonly();
+        $form->text('updated_at', __('Updated'))->readonly();
         $form->select('user_id', 'User')->options(
             \App\User::get()->pluck('userid', 'id')
         )->readonly();
@@ -153,9 +158,10 @@ class TransactionsController extends AdminController
         $form->select('payment_channel_id', 'Payment')->options(
             \App\PaymentChannels::get()->pluck('payment_name', 'id')
         )->required();
-        $form->select('status', 'Status')->options([0 => 'WAITING', 1 => 'PROCCESS',  2 => 'SUCCESS', 3 => 'FAILED', 4 => 'EXPIRED'])->default('0')->required();
+        $form->select('status', 'Status')->options([0 => 'WAITING', 1 => 'PROCCESS',  2 => 'SUCCESS', 3 => 'FAILED', 4 => 'EXPIRED', 5 => 'API PROCCESS'])->default('0')->required();
         $form->text('payment_ref','Payment Ref')->readonly();
-        
+        $form->text('notes','API ID #')->readonly();
+
         $form->tools(function (Form\Tools $tools) {
             $tools->disableDelete();
             $tools->disableView();

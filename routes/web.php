@@ -8,6 +8,11 @@ if (config('maintenance_mode') == 'yes'){
 
 Auth::routes();
 
+Route::get('/sendapi', 'APIController@SendServerAPI');
+Route::get('/cekapi', 'APIController@CheckAPI');
+
+//Route::get('/cobaapi', 'APIController@CobaAPI');
+
 Route::get('/ceksms', 'SMSController@checkinboxsms')->name('ceksms');
 
 Route::post('/login', [

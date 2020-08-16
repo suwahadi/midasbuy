@@ -286,7 +286,8 @@ body {
     word-break: break-word;
     position: relative;
     overflow: hidden;
-    background: #19214b;}
+    background: #19214b;
+}
 .voucher-list-element>a:hover {
     color: #fff;
     }

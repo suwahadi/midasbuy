@@ -24,7 +24,7 @@
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px;background: #fff;margin-top: 2%; margin-bottom: 2%; border-radius: 6px;">
+<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px;background:#19214b;margin-top: 2%;">
 
 	<div class="news__card-row">
 		@foreach ( $newss as $news )

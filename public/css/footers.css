@@ -13,7 +13,8 @@ footer {
     display: flex;
     padding: 10px;
     margin: 0 auto;
-    width: 760px}
+    /* width: 760px; */
+}
 .footer-area {
     width: 100%;
     max-width: 680px;

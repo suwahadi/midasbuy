@@ -24,10 +24,15 @@
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px;background: #fff;margin-top: 2%; margin-bottom: 2%; border-radius: 6px;">
+<div class="coda-about__short-description" style="color: #fff;font-size: 15px;padding: 10px;max-width: 755px;background:#19214b;margin-top: 2%;">
+
 	<img src="{{url('storage')}}/{{$news->thumbNews}}" alt="{{$news->titleNews}}" title="{{$news->titleNews}}" class="promo-banner-image flickity-lazyloaded">
-	<h3>{{$news->titleNews}}</h3>	
-	{!!$news->contentNews!!}
+	
+	<div style="padding: 10px">
+		<h3>{{$news->titleNews}}</h3>
+		{!!$news->contentNews!!}
+	</div>
+
 </div>
 
 <link rel="stylesheet" type="text/css" media="all" href="{{URL::asset('css/landing.css')}}" />

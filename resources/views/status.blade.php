@@ -27,7 +27,7 @@
 
 <div class="container product-container">
 
-<section class="product-details-container">
+{{-- <section class="product-details-container">
     <div class="product__name">
         Terima kasih atas pesanan Anda
     </div>
@@ -41,7 +41,7 @@
         <br><br>
         Bingung cara menggunakan Redeem Code? <a style="color:#fff; text-decoration: underline;" href="{{url('faq')}}">Klik disini</a>.
         <br>
-</section>
+</section> --}}
 
 <main id="contents" class="main-content">
 
@@ -103,7 +103,7 @@
 
         <div class="order-header-container">
             @if ($transaction->status == 0)
-                <h1 class="response-header">Selesaikan Pembayaran Anda</h1>
+                <h4 class="response-header">Selesaikan Pembayaran Anda</h4>
                 @if ($transaction->payment_channel_id == 1)
                 <p class="info response-sub-header">
                     Silahkan lakukan pembayaran tepat sejumlah: <strong>Rp {{number_format($transaction->total, 0)}}</strong> ke:<br><br>
@@ -189,11 +189,11 @@
                 </p>
                 @endif
              @elseif ($transaction->status == 1)
-                <h1 class="response-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock-history" fill="currentColor" xmlns="//www.w3.org/2000/svg">
+                <h4 class="response-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock-history" fill="currentColor" xmlns="//www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
                     <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
                     <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg> Transaksi Dalam Proses...</h1>
+                  </svg> Transaksi Dalam Proses...</h4>
                 <p class="info response-sub-header">
 
                     <div class="alert alert-info" role="alert">
@@ -205,10 +205,10 @@
                     Apabila Anda mempunyai pertanyaan, silahkan hubungi layanan pelanggan kami di WhatsApp: {{config('whatsapp')}}.
                 </p>
             @elseif ($transaction->status == 2)
-                <h1 class="response-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-square" fill="currentColor" xmlns="//www.w3.org/2000/svg">
+                <h4 class="response-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-square" fill="currentColor" xmlns="//www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                     <path fill-rule="evenodd" d="M1.5 13A1.5 1.5 0 0 0 3 14.5h10a1.5 1.5 0 0 0 1.5-1.5V8a.5.5 0 0 0-1 0v5a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 0 0-1H3A1.5 1.5 0 0 0 1.5 3v10z"/>
-                  </svg> Transaksi Sudah Selesai</h1>
+                  </svg> Transaksi Sudah Selesai</h4>
                 <p class="info response-sub-header">
 
                     <div class="alert alert-info" role="alert">
@@ -220,17 +220,17 @@
                     Apabila Anda mempunyai pertanyaan, silahkan hubungi layanan pelanggan kami di WhatsApp: {{config('whatsapp')}}.
                 </p>
                 @elseif ($transaction->status == 3)
-                <h1 class="response-header">Transaksi Gagal</h1>
+                <h4 class="response-header">Transaksi Gagal</h4>
                 <p class="info response-sub-header">
                     Mohon maaf. Transaksi Anda gagal diproses. Kemungkinan produk sedang gangguan atau layanan yang sedang padat.<br><br>
                     Apabila Anda mempunyai pertanyaan, silahkan hubungi layanan pelanggan kami di WhatsApp: {{config('whatsapp')}}.
                 </p>
                 @elseif ($transaction->status == 4)
-                <h1 class="response-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="//www.w3.org/2000/svg">
+                <h4 class="response-header"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="//www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                     <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
                     <circle cx="8" cy="4.5" r="1"/>
-                  </svg> Transaksi Kadaluarsa</h1>
+                  </svg> Transaksi Kadaluarsa</h4>
                 <p class="info response-sub-header">
 
                     <div class="alert alert-danger" role="alert">
@@ -245,14 +245,14 @@
 
         <div class="order-detail-container">
 
-        <p style="text-align: center;">
-            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Ringkasan Pesanan <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-double-down" fill="currentColor" xmlns="//www.w3.org/2000/svg">
+        <p style="text-align: left;">
+            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="color: #fff;">Ringkasan Pesanan <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-double-down" fill="currentColor" xmlns="//www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                 <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
               </svg></a>
         </p>
         <div class="collapse" id="collapseExample">
-            <div class="card card-body">
+            <div class="card-body" style="border: 1px dashed #fff;">
                 <p>
                     Tanggal:<br>
                     <span style="font-weight: 600;">{{$transaction->created_at}}</span>
@@ -307,17 +307,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
         {{-- <h2 class="order-detail__headline">Ringkasan Pesanan:</h2> --}}
-
+        
+        <br>
             @if ($transaction->status == 0)
                 @if ($transaction->payment_channel_id == 5 OR $transaction->payment_channel_id == 6 OR $transaction->payment_channel_id == 7 OR $transaction->payment_channel_id == 9 OR $transaction->payment_channel_id == 10 OR $transaction->payment_channel_id == 11)
                     <a href="https://payment.tripay.co.id/checkout/{{$transaction->payment_ref}}" style="text-decoration: none;"><input type="button" class="btn btn-info btn-lg btn-block" style="cursor: pointer; margin: 0; float: none;" value="Lakukan Pembayaran"></a>
                 @elseif ($transaction->payment_channel_id == 12)
                     {{-- <a href="{{$transaction->payment_ref}}" style="text-decoration: none;"><input type="button" class="btn btn-info btn-lg btn-block" style="cursor: pointer; margin: 0; float: none;" value="Proses Transfer Pulsa"></a> --}}
                 @else
-                    <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya" style="background: rgba(20,27,61,1);"></a>
+                    <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya" style="background: #3a7bfc;"></a>
                 @endif
             @elseif ($transaction->status == 1 OR $transaction->status == 2 OR $transaction->status == 3 OR $transaction->status == 4)
-                <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya" style="background: rgba(20,27,61,1);"></a>
+                <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya" style="background: #3a7bfc;"></a>
             @endif
 
         </div>
@@ -330,16 +331,16 @@
 
 </div>
 
-<section class="section product__long-description">
+{{-- <section class="section product__long-description">
     <article class="product__tag-line">
         Anda mengalami kesulitan atau kendala dalam order / pembelian item produk?<br>
         Silahkan hubungi layanan pelanggan {{config('webname')}} via WhatsApp di: {{config('whatsapp')}} atau melalui email kami di: {{config('email')}}.
         <br>
     </article>
-</section>
+</section> --}}
 
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/jquery-ui-1.12.1.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product-page.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/status.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/infobar2.css')}}" />
 <script type="text/javascript" src="{{URL::asset('js/jquery.cookie.js')}}"></script>
 

@@ -157,7 +157,9 @@ class TransactionsController extends Controller
         $merchantRef = $data->trx_id;
         $userid = $data->user_id;
 
-        $vproducts = DB::table('products')->where('id', $data->product_id)->first();
+        $vproducts = DB::table('items')->where('id', $data->product_id)->first();
+        //dd($data);
+        //dd($vproducts);
         $vproductsname = $vproducts->name;
 
         // START Payment Gateway

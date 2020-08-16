@@ -32,9 +32,11 @@
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px;background: #fff;margin-top: 2%; margin-bottom: 2%; border-radius: 6px;">
-<h3 style="text-align: center">{{$page->titlePage}}</h3>
-	{!!$page->contentPage!!}
+<div class="coda-about__short-description" style="color: #fff;font-size: 15px;padding: 10px;max-width: 755px;background:#19214b;margin-top: 2%;">
+	<div style="padding: 10px">
+		<h3 style="text-align: center">{{$page->titlePage}}</h3>
+		{!!$page->contentPage!!}
+	</div>
 </div>
 
 <link rel="stylesheet" type="text/css" media="all" href="{{URL::asset('css/landing.css')}}" />
