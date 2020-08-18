@@ -59,8 +59,8 @@
     <div class="section">
         <h2 class="errorHeader">Sukses!</h2>
         <div class="container">
-            <div class="row">
-            <div class="col-sm-12" style="padding:20px;">
+            <div class="row" style="background: #fff">
+            <div class="col-sm-12" style="padding:20px; background: #fff">
                 {{ \Illuminate\Support\Facades\Session::get('alert-success') }}
             </div>
             <div class="col-sm-9" style="padding:3px;">
@@ -182,6 +182,6 @@
 
 
 <link rel="stylesheet" type="text/css" media="all" href="{{URL::asset('css/landing.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product-page.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product.css')}}" />
 
 @endsection

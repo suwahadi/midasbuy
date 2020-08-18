@@ -25,26 +25,22 @@ class PaymentChannelsController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PaymentChannels());
+        $grid->model()->orderBy('id', 'asc');
+        $grid->model()->where('status', '=', 1);
 
-        $grid->column('id', __('#'));
+        // $grid->column('id', __('#'));
         $grid->column('payment_name', __('Name'));
         $grid->column('payment_code', __('Code'))->upper();
         $grid->payment_logo('Logo')->image('/storage/', 100, 100);
         $grid->column('payment_description', __('Description'));
-        // $grid->column('minimum_price', __('Minimum Price'))->display (function () {
-        //     return 'Rp ' . number_format($this->minimum_price, 0);
-        // });
-        // $grid->column('mark_up_price', __('Mark Up (+)'))->display (function () {
-        //     return 'Rp ' . number_format($this->mark_up_price, 0);
-        // });
         $grid->column('mark_up_price', __('Mark Up (+)'));
-        $grid->column('status')->using([
-            0 => 'INACTIVE',
-            1 => 'ACTIVE',
-        ], 'Unknown')->dot([
-            0 => 'danger',
-            1 => 'success',
-        ], 'warning');
+        // $grid->column('status')->using([
+        //     0 => 'INACTIVE',
+        //     1 => 'ACTIVE',
+        // ], 'Unknown')->dot([
+        //     0 => 'danger',
+        //     1 => 'success',
+        // ], 'warning');
 
         $grid->actions(function ($actions) {
             $actions->disableView();
@@ -88,8 +84,8 @@ class PaymentChannelsController extends AdminController
         $form->text('payment_description', __('Description'))->required();
         $form->text('api_key', __('Nomor Rekening'));
         $form->text('api_user', __('Atas Nama'));
-        $form->currency('mark_up_price', 'Mark Up (+)')->symbol('Rp')->digits(0)->required();
-        $form->select('status', 'Status')->options([0 => 'INACTIVE', 1 => 'ACTIVE'])->default('1')->required();
+        $form->number('mark_up_price', 'Mark Up (+)')->required();
+        // $form->select('status', 'Status')->options([0 => 'INACTIVE', 1 => 'ACTIVE'])->default('1')->required();
 
         $form->tools(function (Form\Tools $tools) {
             $tools->disableDelete();

@@ -1,5 +1,10 @@
 <?php
 
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
 if (config('maintenance_mode') == 'yes'){
     Route::get('{any?}', function ($any = null) {
         return view('maintenance');
@@ -11,9 +16,10 @@ Auth::routes();
 Route::get('/sendapi', 'APIController@SendServerAPI');
 Route::get('/cekapi', 'APIController@CheckAPI');
 
-//Route::get('/cobaapi', 'APIController@CobaAPI');
-
 Route::get('/ceksms', 'SMSController@checkinboxsms')->name('ceksms');
+
+Route::post('/transferpulsa', 'ProductsController@TansferPulsa')->name('transferpulsa');
+Route::get('/transferpulsa/{trx_id}', 'ProductsController@DetailTansferPulsa');
 
 Route::post('/login', [
     'uses'          => '\App\Http\Controllers\Auth\LoginController@login',

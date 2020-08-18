@@ -31,15 +31,15 @@ class APIController extends Controller
     $curl = curl_init();
     $api_key = "authorization: Bearer ".config('transaction_api_key');
     curl_setopt_array($curl, array(
-      //CURLOPT_URL => "https://vouchergame.id/api/order",
-      CURLOPT_URL => "http://localhost/codashop/public/api/order",
+      CURLOPT_URL => "https://vouchergame.id/api/order",
+      //CURLOPT_URL => "http://localhost/codashop/public/api/order",
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,
       CURLOPT_TIMEOUT => 30,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"product\"\r\n\r\n$product_code\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data;  name=\"game_id\"\r\n\r\n$game_id\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"phone\"\r\n\r\n$phone\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n$email.com\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--",
+      CURLOPT_POSTFIELDS => "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"product\"\r\n\r\n$product_code\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data;  name=\"game_id\"\r\n\r\n$game_id\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"phone\"\r\n\r\n$phone\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n$email\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--",
       CURLOPT_HTTPHEADER => array(
         $api_key,
         "cache-control: no-cache",
@@ -110,7 +110,8 @@ public function CheckAPI () {
       $api_key = "authorization: Bearer ".config('transaction_api_key');
       $trx_id_api = $trx_id_api;
       curl_setopt_array($curl, array(
-      CURLOPT_URL => "http://localhost/codashop/public/api/history/".$trx_id_api,
+      CURLOPT_URL => "https://vouchergame.id/api/history/".$trx_id_api,
+      //CURLOPT_URL => "http://localhost/codashop/public/api/history/".$trx_id_api,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,

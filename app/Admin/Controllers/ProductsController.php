@@ -31,11 +31,11 @@ class ProductsController extends AdminController
         $grid->column('name', __('Name'));
         $grid->column('slug', __('Slug'));
         $grid->column('denom', __('Denom'));
-        $grid->column('intro', 'Intro')->display (function () {
-            return str_limit(strip_tags($this->intro), 145, '...');
-        });
+        // $grid->column('intro', 'Intro')->display (function () {
+        //     return str_limit(strip_tags($this->intro), 145, '...');
+        // });
         $grid->column('description', 'Description')->display (function () {
-            return str_limit(strip_tags($this->description), 145, '...');
+            return str_limit(strip_tags($this->description), 420, '...');
         });
         $grid->column('promo')->using([
             'Yes' => 'YES',
@@ -90,9 +90,9 @@ class ProductsController extends AdminController
         $form->text('slug', __('Slug'));
         $form->text('denom', __('Denom'));
         $form->image('image', __('Image'))->uniqueName()->required();
-        $form->textarea('intro', __('Intro'));
-        $form->url('ios_link', __('iOS Download'));
-        $form->url('android_link', __('Android Download'));
+        // $form->textarea('intro', __('Intro'));
+        $form->text('ios_link', __('iOS Download'));
+        $form->text('android_link', __('Android Download'));
         $form->ckeditor('description','Description');
         $form->select('promo', 'Promo')->options(['No' => 'NO', 'Yes' => 'YES'])->default('No')->required();
         $form->select('status', 'Status')->options([0 => 'INACTIVE', 1 => 'ACTIVE'])->default('1')->required();

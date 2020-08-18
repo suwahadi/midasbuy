@@ -34,14 +34,14 @@
     <div class="section">
         <h2 class="errorHeader">Upps...</h2>
         <div class="container">
-            <div class="row">
-            <div class="col-sm-12" style="padding:20px;">
+            <div class="row" style="background: red">
+            <div class="col-sm-12" style="padding:20px; background-color: red">
                 {{ \Illuminate\Support\Facades\Session::get('error') }}
             </div>
             <div class="col-sm-9" style="padding:3px;">
             </div>
             <div class="col-sm-3" style="padding:10px;">
-                <a style="color:#fff" class="btn btn-dark btn-lg btn-block" id="myBtn" style="cursor: pointer;">Okay!</a>
+                <a style="color:#111" class="btn btn-light btn-lg btn-block" id="myBtn" style="cursor: pointer;">Okay!</a>
             </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
     .errorHeader {
         margin: 0;
         padding: 10px 15px;
-        background-color: #222 !important;
+        background-color: #111 !important;
         color: #fff;
         font-size: 18px;
     }
@@ -64,7 +64,7 @@
         display: block;
         position: fixed;
         left: 50%;
-        top: 35% !important;
+        top: 45% !important;
         transform: translate(-50%,-50%);
         border-radius: 6px;
         padding: 0;
@@ -73,43 +73,23 @@
         box-shadow: none;
         border: 1px solid #ddd;
     }
+    img#payment-1, img#payment-2, img#payment-3, img#payment-4, img#payment-5, img#payment-6, img#payment-7, img#payment-8, img#payment-9, img#payment-10, img#payment-11, img#payment-12 {
+        filter: drop-shadow(3px 3px 2px #111);
+    }
 </style>
-
-{{-- <section class="product-details-container">
-    <div class="product-top-banner__container"><img src="{{url('storage')}}/{{$productByCode->image}}" alt="{{strtoupper($productByCode->name)}}" title="{{strtoupper($productByCode->name)}}" class="product__top-banner"></div>
-        
-    <div class="product__name">
-        {{strtoupper($productByCode->name)}}
-    </div>
-
-    <input type="checkbox" id="product-description" name="product-description" class="product-description-checkbox">
-    <label for="product-description">
-        <span class="more-info">Baca lebih lanjut</span>
-        <span class="less-info">Tutup informasi detail</span>
-    </label>
-    <div class="product__description">
-        {!! $productByCode->intro !!}
-        <br><br>
-        Bingung cara menggunakan Redeem Code? <a style="color:#fff; text-decoration: underline;" href="{{url('/faq')}}">Klik disini</a>.
-        <br><br>
-
-        @if ($productByCode->ios_link != NULL)
-            <a href="{{$productByCode->ios_link}}" target="_blank" style="padding: 0 0 0 0;" >
-            <img style="width:120px; padding-top: 5px;"src="{{URL::asset('images/app_store.png')}}" alt="Download on the App Store" title="Download on the App Store"></a>
-        @endif
-
-        @if ($productByCode->android_link != NULL)
-        <a href="{{$productByCode->android_link}}" target="_blank" style="padding: 0 0 0 0;" >
-        <img style="width:120px; padding-top: 5px;"src="{{URL::asset('images/google_play.png')}}" alt="Download on Google Play" title="Download on Google Play"></a></div>
-        @endif
-
-</section> --}}
 
 <main id="contents" class="main-content" style="margin-top: 3%; margin-bottom: 3%; background: transparent">
 
-<div class="section voucher">
-    <h5 style="color: #fff">1. Pilih Nominal</h5>
+<div class="product-top-banner__container"><img src="{{url('storage')}}/{{$productByCode->image}}" alt="{{strtoupper($productByCode->name)}}" title="{{strtoupper($productByCode->name)}}" class="product__top-banner"></div>
 
+<div class="section voucher">
+
+@if (count($produkpluck) > 0)
+    <h5 style="color: #fff">1. Pilih Nominal</h5>
+@else
+    <h6 style="color: #fff; text-align: center; padding: 20px; font-style:italic;">Maaf, sementara item belum tersedia untuk produk ini...</h6>
+@endif
+    
     @auth
     <ul class="vocherSelectionList ul-denoms voucher-denom-container">
         @php $i = 1; @endphp
@@ -485,8 +465,8 @@
     <div class="section">
         <h2 class="errorHeader">Upps...</h2>
         <div class="container">
-            <div class="row">
-            <div class="col-sm-12" style="padding:20px;">
+            <div class="row" style="background-color: red">
+            <div class="col-sm-12" style="padding:20px; background-color: red">
                 <ul class="errorMessage__container" id="errorMessage">
                     {{$errors->first()}}<br><br>
                     <li class="error-msg__element">Silahkan pilih nomor voucher</li>
@@ -499,7 +479,7 @@
             <div class="col-sm-9" style="padding:3px;">
             </div>
             <div class="col-sm-3" style="padding:10px;">
-                <a style="color:#fff" class="btn btn-dark btn-lg btn-block" id="myBtn" style="cursor: pointer;">Ulangi</a>
+                <a style="color:#111" class="btn btn-light btn-lg btn-block" id="myBtn" style="cursor: pointer;">Ulangi</a>
             </div>
             </div>
         </div>
@@ -515,18 +495,26 @@
     });
 </script>
 
-<div id="overlay" class="overlay-element"></div>
+{{-- <div id="overlay" class="overlay-element"></div> --}}
 
 </main>
 
-</div>
+<article class="product__tag-line" style="color: #fff; font-size: 13px;">
+    <h6 style="font-weight: bold;">{{strtoupper($productByCode->name)}}</h6>
+    {!! $productByCode->description !!}
+    @if ($productByCode->ios_link != NULL)
+        <a href="{{$productByCode->ios_link}}" target="_blank" style="padding: 0 0 0 0;" >
+        <img style="width:120px; padding-top: 5px;"src="{{URL::asset('images/app_store.png')}}" alt="Download on the App Store" title="Download on the App Store"></a>
+    @endif
+    @if ($productByCode->android_link != NULL)
+        <a href="{{$productByCode->android_link}}" target="_blank" style="padding: 0 0 0 0;" >
+        <img style="width:120px; padding-top: 5px;"src="{{URL::asset('images/google_play.png')}}" alt="Download on Google Play" title="Download on Google Play"></a>
+    @endif
+</article>
 
-<section class="section product__long-description">
-    <article class="product__tag-line">
-        {!! $productByCode->description !!}
-        <br>
-    </article>
-</section>
+<br><br>
+
+</div>
 
 <script>
 function checkForm(FomOrder)
@@ -1333,9 +1321,9 @@ function show20() {
 </script>
 
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/jquery-ui-1.12.1.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product-page.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/infobar2.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/payment.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/payments.css')}}" />
 <script type="text/javascript" src="{{URL::asset('js/jquery.cookie.js')}}"></script>
 
 @endsection

@@ -617,7 +617,7 @@ body {
 ul.errorMessage__container {
     padding: 10px 10px 10px 40px;
     font-size: 16px;
-    color: #484848;
+    color: #fff;
     list-style-type: disc}
 ul.errorMessage__container li {
     padding: 3px 0}

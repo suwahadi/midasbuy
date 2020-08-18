@@ -227,7 +227,7 @@ class ProductsController extends Controller
             $trxupd = Transactions::where('trx_id', $request->trx_id)
             ->where('status', '0')
             ->where('payment_channel_id', '12')
-            ->update(['payment_ref' => $request->phone]);
+            ->update(['payment_ref' => $request->phone, 'notes' => $request->trx_id]);
             return redirect('transferpulsa/'.$request->trx_id);
         }else{
             return redirect()->back()->with('errorNomor','Pastikan nomor Telkomsel yang Anda masukkan sudah benar, awalan harus 62, tanpa tanda hubung / tanpa spasi (Contoh: 6281234567890)');

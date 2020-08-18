@@ -127,7 +127,7 @@
 </div>
 
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/jquery-ui-1.12.1.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product-page.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/infobar2.css')}}" />
 <script type="text/javascript" src="{{URL::asset('js/jquery.cookie.js')}}"></script>
 

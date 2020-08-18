@@ -91,6 +91,6 @@ function checkForm(FomEditProfie)
 </div>
 
 <link rel="stylesheet" type="text/css" media="all" href="{{URL::asset('css/landing.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/product-page.css')}}" />
+{{-- <link rel="stylesheet" type="text/css" href="{{URL::asset('css/product.css')}}" /> --}}
 
 @endsection

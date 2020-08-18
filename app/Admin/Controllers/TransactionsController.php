@@ -37,7 +37,7 @@ class TransactionsController extends AdminController
             return strtoupper($userid);
         });
         $grid->Items()->name('Item')->display (function ($name) {
-            return $name;
+            return strtoupper($name);
         });
         $grid->column('product_code', __('Code'));
         $grid->column('game_id', __('ID Game'));
@@ -142,9 +142,8 @@ class TransactionsController extends AdminController
     {
         $form = new Form(new Transactions());
 
-        $form->text('trx_id', __('ID #'))->required()->readonly();
-        $form->text('created_at', __('Created'))->readonly();
-        $form->text('updated_at', __('Updated'))->readonly();
+        $form->text('trx_id', __('Trans ID #'))->required()->readonly();
+        $form->text('created_at', __('Date'))->readonly();
         $form->select('user_id', 'User')->options(
             \App\User::get()->pluck('userid', 'id')
         )->readonly();
@@ -155,15 +154,16 @@ class TransactionsController extends AdminController
         $form->text('phone', __('Phone'));
         $form->email('email', __('Email'));
         $form->currency('total', 'Total')->symbol('Rp')->digits(0)->required();
-        $form->select('payment_channel_id', 'Payment')->options(
-            \App\PaymentChannels::get()->pluck('payment_name', 'id')
-        )->required();
-        $form->select('status', 'Status')->options([0 => 'WAITING', 1 => 'PROCCESS',  2 => 'SUCCESS', 3 => 'FAILED', 4 => 'EXPIRED', 5 => 'API PROCCESS'])->default('0')->required();
+        // $form->select('payment_channel_id', 'Payment')->options(
+        //     \App\PaymentChannels::get()->pluck('payment_name', 'id')
+        // )->required();
+        $form->select('payment_channel_id', 'Payment')->options([0 => 'SALDO', 1 => 'GOPAY', 2 => 'OVO',  5 => 'ALFAMART', 6 => 'INDOMARET', 8 => 'BCA', 9 => 'MANDIRI', 10 => 'BNI', 11 => 'BRI', 12 => 'TELKOMSEL'])->required();
+        // $form->text('notes', __('SN'));
+        $form->select('status', 'Status')->options([0 => 'WAITING', 1 => 'PROCCESS',  2 => 'SUCCESS', 3 => 'FAILED', 4 => 'EXPIRED', '5' => 'API PROCESS'])->default('0')->required();
         $form->text('payment_ref','Payment Ref')->readonly();
         $form->text('notes','API ID #')->readonly();
-
+        
         $form->tools(function (Form\Tools $tools) {
-            $tools->disableDelete();
             $tools->disableView();
         });
 

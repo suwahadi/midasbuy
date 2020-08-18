@@ -19,15 +19,15 @@
         <br>
 
         <a href='{{config('facebook')}}' target="_blank" class="social-icon-container">
-            <img src="{{URL::asset('images/facebook.png')}}" alt="Facebook" title="Facebook" class="social-icon">
+            <img src="{{URL::asset('images/facebook1.png')}}" alt="Facebook" title="Facebook" class="social-icon">
         </a>
     
         <a href='{{config('youtube')}}' target="_blank" class="social-icon-container">
-            <img src="{{URL::asset('images/youtube.png')}}" alt="Youtube" title="Youtube" class="social-icon">
+            <img src="{{URL::asset('images/youtube1.png')}}" alt="Youtube" title="Youtube" class="social-icon">
         </a>
 
         <a href='{{config('instagram')}}' target="_blank" class="social-icon-container">
-            <img src="{{URL::asset('images/instagram.png')}}" alt="Instagram" title="Instagram" class="social-icon">
+            <img src="{{URL::asset('images/instagram1.png')}}" alt="Instagram" title="Instagram" class="social-icon">
         </a>
 
         <br><br>
@@ -41,4 +41,4 @@
     Copyright &copy; 2020 {{config('webname')}} - {{config('slogan')}}
 </div>
 
-<link rel="stylesheet" type="text/css" href="{{URL::asset('css/footers.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/footer.css')}}" />

@@ -66,11 +66,11 @@ class TransactionsController extends Controller
    {
 
     $validator = Validator::make($request->all(), [
-        'productID' => ['required'],
-        'productCode' => ['required'],
-        'price' => ['required'],
-        'phone' => ['required'],
-        'email' => ['required'],
+        'productID'     => ['required'],
+        'productCode'   => ['required'],
+        'price'         => ['required'],
+        'phone'         => ['required'],
+        'email'         => ['required'],
     ]);
 
     if ($request->game_id2) {
@@ -96,20 +96,37 @@ class TransactionsController extends Controller
     // Start Validasi Harga
     if (Auth::guest()) {
 
-        $vitems= DB::table('items')->where('id', $data['productID'])->first();
+        $vitems = DB::table('items')->where('id', $data['productID'])->first();
         $vprice1 = $vitems->price_reguler;
-
         $productID = $vitems->id;
         $product_code = $vitems->code;
-
+        
         $vchannels = DB::table('payment_channels')->where('id', $data['channel'])->first();
+        $vchannelID = $request->channel;
         $vmarkup1 = $vchannels->mark_up_price;
+        $vmarkup2 = $vchannels->mark_up_price/100;
 
         $n1 = $vprice1+$vmarkup1;
         $amount = $request->price;
+        $n2 = $vprice1+($vprice1*$vmarkup2);
 
-        if ($data['price'] != $n1) {
+        if ( $vchannelID == '12' ) {
+            $ratusan = substr($n2, -3);
+            if($ratusan<200) {
+                $akhir = $n2 - $ratusan;
+            } else {
+                $akhir = $n2 + (1000-$ratusan);
+            }
+        
+        //dd($data['price'].' => '.$akhir);
+
+        if ( $data['price'] != $akhir ) {
             return Redirect::back()->withErrors(['Informasi yang Anda masukkan kurang lengkap!', '']);
+        }
+        } else {
+            if ( $data['price'] != $n1 ) {
+                return Redirect::back()->withErrors(['Informasi yang Anda masukkan kurang lengkap!', '']);
+            }
         }
 
     } elseif (Auth::user()) {
@@ -353,11 +370,21 @@ class TransactionsController extends Controller
             ['id', '=', $paymentid],
         ])->first();
 
-        if ($transaction) {
+        if ( ($paymentid = 12) AND ($transaction->payment_ref !='' AND ($transaction->status =='0') ) ) {
+            return redirect('transferpulsa/'.$trx_id);
+        } else {
             return view('status', [
                 'transaction' => $transaction,
                 'product' => $product,
                 'payment' => $payment,
+            ]);
+        }
+
+        if ($transaction) {
+            return view('status', [
+                'transaction'   => $transaction,
+                'product'       => $product,
+                'payment'       => $payment,
             ]);
         } else {
             return redirect()->route('frontpage');

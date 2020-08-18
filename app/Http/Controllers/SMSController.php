@@ -179,6 +179,7 @@ class SMSController extends Controller
                                         ->where('payment_channel_id', '12')
                                         ->where('total', $nominalpulsa)
                                         ->where('payment_ref', $pengirimpulsa)
+                                        ->where('notes', $datatrx->trx_id)
                                         ->update(['status' => '1']);
     
                                     // Push Notifikasi Admin:
