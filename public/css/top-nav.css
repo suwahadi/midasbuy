@@ -4,7 +4,7 @@ body {
     margin: 0!important}
 .top-navbar {
     box-shadow: 0 1px 0px 0 rgba(247, 247, 247, 0.171);
-    /* background-color: #fff */
+    background-color: #fff;
 }
 .top-navbar.top-nav--productpage {
     display: none}

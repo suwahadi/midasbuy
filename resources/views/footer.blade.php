@@ -9,7 +9,7 @@
 <footer class="footer-container">
 </footer>
 
-<div style="text-align:center; background: #fff; color:#222; font-size:13px; padding:30px;">
+<div style="text-align:center; background: #f8f8f8; color:#222; font-size:13px; padding:30px;">
 
         <a style="color: #222;" href="https://wa.me/{{config('whatsapp')}}" target="_blank">
             <img src="{{URL::asset('images/whatsapp.png')}}" alt="WhatsApp" title="WhatsApp" class="social-icon"><br>

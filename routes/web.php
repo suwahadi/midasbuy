@@ -17,6 +17,7 @@ Route::get('/sendapi', 'APIController@SendServerAPI');
 Route::get('/cekapi', 'APIController@CheckAPI');
 
 Route::get('/ceksms', 'SMSController@checkinboxsms')->name('ceksms');
+Route::post('/admin/sms/send', 'SMSController@sendsms')->name('sendsms');
 
 Route::post('/transferpulsa', 'ProductsController@TansferPulsa')->name('transferpulsa');
 Route::get('/transferpulsa/{trx_id}', 'ProductsController@DetailTansferPulsa');

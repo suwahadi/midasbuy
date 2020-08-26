@@ -9,7 +9,7 @@
 body {
     font-family: Lato-Regular,sans-serif;
     position: relative;
-    background-color: rgba(20,27,61,1);
+    background-color: #fcb800;
 }
 .form-input--dropdown,.product-description-checkbox+label,.product__name {
     font-family: Lato-Bold,sans-serif}
@@ -29,7 +29,8 @@ body {
 .main-content,.product-details-container {
     display: block}
 .product-container {
-    margin-top: 5px;
+    margin-top: 2%;
+    background: #f8f8f8;
     display: block}
 .product-details-container {
     color: #fff;
@@ -218,7 +219,7 @@ body {
     font-family: Lato-Italic,sans-serif;
     line-height: 15px;
     margin: 5px 0 0;
-    color: #fff}
+    color: #222}
 .circle {
     font-family: Lato-Semibold,sans-serif;
     font-size: 20px;
@@ -277,7 +278,7 @@ body {
 .voucher-list-element>a {
     display: table-cell;
     text-decoration: none;
-    color: #fff;
+    color: #111;
     font-size: 14px;
     font-family: Lato-Regular,sans-serif;
     text-align: center;
@@ -286,11 +287,15 @@ body {
     word-break: break-word;
     position: relative;
     overflow: hidden;
-    background: #19214b;
+    background: #e3e5ea;
 }
 .voucher-list-element>a:hover {
-    color: #fff;
+    color: #222;
     }
+a[tabindex]:focus, a[tabindex]:visited {
+    background: #fcb800;
+    outline: none;
+}
 #element-check-label,.voucher-list-element>a+.errMessage {
     position: absolute;
     text-align: center;
@@ -339,12 +344,12 @@ body {
 .disabled-element {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%)}
-    .payment-channel-element {
+.payment-channel-element {
     display: inline-block;
     margin: 5px 3px 12px 3px;
     cursor: pointer;
-    background: #19214b;
-    color: #fff;
+    background: #e3e5ea;
+    color: #111;
     width: 24%;
     }
 .payment-channel-element img.check {
@@ -417,7 +422,7 @@ body {
 .payment-price-container {
     font-size: 10px;
     font-family: Lato-Bold,sans-serif;
-    color: #999;
+    color: #222;
     width: 100%;
     padding-left: 8px;
     padding-right: 4px}
@@ -442,7 +447,7 @@ body {
     text-align: center;}
 .emailOptional {
     font-size: 13px;
-    color: #fff;
+    color: #222;
     padding: 10px 5px;
     margin: 0;
     display: block}
@@ -611,13 +616,13 @@ body {
 .errorHeader {
     margin: 0;
     padding: 10px 15px;
-    background-color: rgba(20,27,61,1);
+    background-color: #111;
     color: #fff;
     font-size: 18px}
 ul.errorMessage__container {
     padding: 10px 10px 10px 40px;
     font-size: 16px;
-    color: #fff;
+    color: #222;
     list-style-type: disc}
 ul.errorMessage__container li {
     padding: 3px 0}
@@ -1110,8 +1115,8 @@ ul.errorMessage__container li {
         display: inline-block;
         margin: 2px 2px 15px 2px;
         cursor: pointer;
-        background: #19214b;
-        color: #fff;
+        background: #ddd;
+        color: #222;
         width: 31%;
     }
 }

@@ -370,7 +370,7 @@ class TransactionsController extends Controller
             ['id', '=', $paymentid],
         ])->first();
 
-        if ( ($paymentid = 12) AND ($transaction->payment_ref !='' AND ($transaction->status =='0') ) ) {
+        if ( $paymentid == 12 AND $transaction->payment_ref !='' AND $transaction->status == '0' ) {
             return redirect('transferpulsa/'.$trx_id);
         } else {
             return view('status', [
@@ -379,16 +379,7 @@ class TransactionsController extends Controller
                 'payment' => $payment,
             ]);
         }
-
-        if ($transaction) {
-            return view('status', [
-                'transaction'   => $transaction,
-                'product'       => $product,
-                'payment'       => $payment,
-            ]);
-        } else {
-            return redirect()->route('frontpage');
-        }
+        
     }
 
 }

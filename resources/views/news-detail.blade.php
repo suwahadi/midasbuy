@@ -15,16 +15,16 @@
 <div class="search-container">
 	<div class="search-icon-container" style="float: right;">
 		@guest
-		<a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
+		<a href="{{url('login')}}" style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;">REGISTER</a>
 		@else
-			<a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
+			<a style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;" href="{{url('logout')}}">LOGOUT</a>
 		@endguest
 	</div>
 </div>
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #fff;font-size: 15px;padding: 10px;max-width: 755px;background:#19214b;margin-top: 2%;">
+<div class="coda-about__short-description" style="color: #222;font-size: 15px;padding: 10px;max-width: 755px;background:#f8f8f8;margin-top: 2%;">
 
 	<img src="{{url('storage')}}/{{$news->thumbNews}}" alt="{{$news->titleNews}}" title="{{$news->titleNews}}" class="promo-banner-image flickity-lazyloaded">
 	

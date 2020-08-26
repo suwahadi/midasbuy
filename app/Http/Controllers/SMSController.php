@@ -57,6 +57,7 @@ class SMSController extends Controller
         ));
         //curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         $response = curl_exec($curl);
+        //echo $response;
         $err = curl_error($curl);
         curl_close($curl);
         if ($err) {
@@ -221,6 +222,47 @@ class SMSController extends Controller
             }
 
         }
+    }
+
+
+    public function sendsms (Request $request){
+        $data = new SMSNotif();
+        $data['device_id'] = config('device_id_sms');
+        $data['type'] = 'Outbox';
+        $data['phone_number'] = $request->phone;
+        $data['message'] = $request->message;
+        $data['status'] = 'sent';
+        $data['created_at'] = date('Y-m-d H:i:s');
+
+        $array_fields['phone_number'] = $data['phone_number'];
+        $array_fields['message'] = $data['message'];
+        $array_fields['device_id'] = config('device_id_sms');
+        $api_sms = config('api_sms');
+        
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://smsgateway.me/api/v4/message/send",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "[  " . json_encode($array_fields) . "]",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: $api_sms",
+                "cache-control: no-cache"
+            ),
+        ));
+        //curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        $datasms = json_decode($response, true);
+        $data['sms_id'] = $datasms[0]['id'];
+        $data->save();
+
+        return redirect('/admin/sms');
     }
 
 }

@@ -15,11 +15,11 @@
             {{-- <p class="slogan-element">{{config('slogan')}}</p> --}}
 
         </div>
-        <div class="search-icon-container" style="float: right;">
+		<div class="search-icon-container" style="float: right;">
             @guest
-            <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
+            <a href="{{url('login')}}" style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;">REGISTER</a>
             @else
-                <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
+                <a style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;" href="{{url('logout')}}">LOGOUT</a>
             @endguest
         </div>
     </div>
@@ -162,13 +162,13 @@
                         <label for="label">Total (Rp):</label>
                         <input type="text" class="form-control" id="total" name="total" value="{{$transaction->total}}" readonly>
                     </div>
-                    <div class="form-group">
+                    <div class="form-input-container">
                         <label for="label">Masukkan Nomor {{$payment->payment_name}} Pengirim Pulsa:</label>
-                        <input type="text" class="form-control" id="phone" name="phone" pattern="(62811|62812|62813|62821|62822|62823|62851|62852|62853)\d{7,12}" title="Nomor awalan harus 62, tanpa tanda hubung / tanpa spasi (Contoh: 6281234567890)" required placeholder="62">
+                        <input type="text" class="product-form-input" id="phone" name="phone" pattern="(62811|62812|62813|62821|62822|62823|62851|62852|62853)\d{7,12}" title="Nomor awalan harus 62, tanpa tanda hubung / tanpa spasi (Contoh: 6281234567890)" required placeholder="62">
                         <p style="font-size:13px; line-height:1.2em; padding:3px 0 3px 0;">Pastikan nomor {{$payment->payment_name}} yang Anda masukkan sudah benar, awalan harus 62, tanpa tanda hubung / tanpa spasi (Contoh: 6281234567890)</p>
                     </div>
-                    <div class="email-form-btn-group">
-                        <input type="submit" id="submit" name="submit" class="btn btn-info btn-lg btn-block" style="cursor: pointer; margin: 0; float: none;" value="Proses Transfer Pulsa >">
+                    <div class="form-input-container">
+                        <input style="text-align: center" type="submit" id="submit" name="submit" class="btn btn-info btn-lg btn-block" style="cursor: pointer; margin: 0;" value="Proses Transfer Pulsa >">
                     </div>
                     </form>
                     <script>
@@ -252,7 +252,7 @@
               </svg></a>
         </p> --}}
 
-            <div class="card-body" style="border: 1px dashed #fff;">
+            <div class="card-body" style="border: 1px dashed #222;">
                 <h5 style="padding-bottom: 10px">Ringkasan Pesanan</h5>
                 <p>
                     Tanggal:<br>
@@ -315,10 +315,10 @@
                 @elseif ($transaction->payment_channel_id == 12)
                     {{-- <a href="{{$transaction->payment_ref}}" style="text-decoration: none;"><input type="button" class="btn btn-info btn-lg btn-block" style="cursor: pointer; margin: 0; float: none;" value="Proses Transfer Pulsa"></a> --}}
                 @else
-                    <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya" style="background: #3a7bfc;"></a>
+                    <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya"></a>
                 @endif
             @elseif ($transaction->status == 1 OR $transaction->status == 2 OR $transaction->status == 3 OR $transaction->status == 4)
-                <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya" style="background: #3a7bfc;"></a>
+                <a href="/" style="text-decoration: none;"><input type="button" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Order Item Lainnya"></a>
             @endif
 
         </div>

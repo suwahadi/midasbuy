@@ -24,5 +24,5 @@ Route::group([
     $router->resource('pages', PagesController::class);
     $router->resource('mutasi', TransfersController::class);
     $router->resource('sms', SMSNotifController::class);
-
+    $router->get('sms/create', 'CreateSMSController@index');
 });

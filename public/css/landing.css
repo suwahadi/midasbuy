@@ -25,7 +25,7 @@
 * {
     box-sizing: border-box}
 body {
-    background-color: rgba(20,27,61,1);
+    background-color: #fcb800;
     font-family: Lato-Regular,sans-serif}
 .promo-banner-container {
     max-width: 740px;
@@ -75,16 +75,21 @@ body {
     font-family: Lato-Bold,sans-serif;
     padding-left: 10px;
     padding-bottom: 10px;
+    text-align: center;
     text-transform: uppercase;
-    color: #fff}
+    color: #111}
 .category__product-title {
-    color: #fff;
+    color: #111;
     font-size: 13px;
+    font-weight: 600;
     padding-top: 7px;
     max-width: 128px;
     margin: auto}
+.category__product-title a:hover {
+    text-decoration: none !important;
+}
 .coda-about-container {
-    background-color: #fff;
+    background-color: #111;
     padding: 15px 30px}
 .coda-about__header {
     font-size: 20px;

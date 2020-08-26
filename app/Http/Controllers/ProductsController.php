@@ -184,7 +184,7 @@ class ProductsController extends Controller
             } else {
                 $price = $prd->price_reguler;
             }
-                $memberr = 'Harga:<br>Rp '.number_format($price, 0);
+                $memberr = '(Harga: Rp '.number_format($price, 0).')';
                 $input0 = $price;
                 $ovo = 'Rp '.(number_format($price+$markovo, 0));
                 $input1 = ($price+$markovo);

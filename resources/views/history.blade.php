@@ -36,16 +36,16 @@
 <div class="search-container">
 	<div class="search-icon-container" style="float: right;">
         @guest
-        <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
+        <a href="{{url('login')}}" style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;">REGISTER</a>
         @else
-            <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
+            <a style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;" href="{{url('logout')}}">LOGOUT</a>
         @endguest
     </div>
 </div>
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px; min-height: 500px; background: #fff;margin-top: 5%; margin-bottom: 5%; border-radius: 6px;">
+<div class="coda-about__short-description" style="color: #111; font-size: 15px;padding: 10px;max-width: 755px; min-height: 500px; background: #fff;margin-top: 5%; margin-bottom: 5%;">
 
 <h3>Status Order</h3>
 <hr>
@@ -80,8 +80,10 @@
                     <span class="badge badge-info">Process</span>
                 @elseif ($data->status == '2')
                     <span class="badge badge-success">Success</span>
+                @elseif ($data->status == '5')
+                    <span class="badge badge-info">Process</span>
                 @else
-                    <span class="badge badge-danger">Refund</span>
+                    <span class="badge badge-danger">Failed</span>
                 @endif
             </td>
             {{-- <td>{{$data->notes}}</td> --}}

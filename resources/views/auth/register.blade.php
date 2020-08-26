@@ -17,16 +17,16 @@
 <div class="search-container">
     <div class="search-icon-container" style="float: right;">
         @guest
-        <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
+        <a href="{{url('login')}}" style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;">REGISTER</a>
         @else
-            <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
+            <a style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;" href="{{url('logout')}}">LOGOUT</a>
         @endguest
     </div>
 </div>
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #fff;font-size: 15px;padding: 30px;max-width:350px; background: #111733; margin-top: 12%; margin-bottom: 12%; border-radius: 0;">
+<div class="coda-about__short-description" style="color: #222;font-size: 15px;padding: 30px;max-width:350px; background: #f8f8f8; margin-top: 12%; margin-bottom: 12%; border-radius: 0;">
 
 <div class="form" id="formSection">
 
@@ -83,16 +83,16 @@
     </div>
 
     <div class="form-group">
-        <input style="background: #3a7bfc; border-radius: 0;" type="submit" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Daftar" style="background: rgba(20,27,61,1);">
+        <input type="submit" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Daftar">
     </div>
 
     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
         <path fill-rule="evenodd" d="M1.5 13A1.5 1.5 0 0 0 3 14.5h10a1.5 1.5 0 0 0 1.5-1.5V8a.5.5 0 0 0-1 0v5a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 0 0-1H3A1.5 1.5 0 0 0 1.5 3v10z"/>
-      </svg> <span style="font-size: 12px;">Dengan mendaftarkan akun, berarti Anda sudah mengerti & setuju dengan <a style="color: #fff; text-decoration: underline" href="{{url('terms-conditions')}}">Syarat & Ketentuan</span>.</a>
+      </svg> <span style="font-size: 12px;">Dengan mendaftarkan akun, berarti Anda sudah mengerti & setuju dengan <a style="color: #222; text-decoration: underline" href="{{url('terms-conditions')}}">Syarat & Ketentuan</span>.</a>
 
     <div class="form-group" style="text-align: center; padding: 20px">
-        Sudah Punya Akun? <a href="{{ route('login') }}" style="color: #fff; text-decoration: underline">Login Disini</a>
+        Sudah Punya Akun? <a href="{{ route('login') }}" style="color: #222; text-decoration: underline">Login Disini</a>
     </div>
 
 </form>

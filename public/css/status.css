@@ -9,7 +9,7 @@
 body {
     font-family: Lato-Regular,sans-serif;
     position: relative;
-    background-color: rgba(20,27,61,1);
+    background-color: #fcb800;
 }
 .form-input--dropdown,.product-description-checkbox+label,.product__name {
     font-family: Lato-Bold,sans-serif}
@@ -84,8 +84,8 @@ body {
 .main-content {
     /* margin: 50px 10px 15px; */
     max-width: 640px;
-    color: #fff;
-    background: #19214b;}
+    color: #222;
+    background: #f8f8f8;}
 .section {
     /* background-color: #fcfcfc; */
     /* border-radius: 6px; */

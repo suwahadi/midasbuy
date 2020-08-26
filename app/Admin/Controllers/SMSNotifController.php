@@ -86,35 +86,7 @@ class SMSNotifController extends AdminController
     {
         $form = new Form(new SMSNotif());
 
-        $form->text('device_id', __('Device iD'))->default('118444')->readonly()->required();
-        //$form->select('type', 'Type')->options(['Inbox' => 'Inbox', 'Outbox' => 'Outbox'])->default('Outbox')->readonly()->required();
-        $form->hidden('type', __('Type'));
-        $form->hidden('sms_id', __('SMS ID'));
-        $form->text('phone_number', __('Phone Number'))->required();
-        $form->textarea('message', __('Message'))->rows(3)->required();
-        //$form->select('status', 'Status')->options(['pending' => 'pending', 'sent' => 'sent', 'canceled' => 'canceled'])->default('pending')->required();
-        $form->hidden('status', __('Status'));
-
-        $form->tools(function (Form\Tools $tools) {
-            $tools->disableView();
-            $tools->disableDelete();
-        });
-
-        $form->footer(function ($footer) {
-            $footer->disableReset();
-            $footer->disableViewCheck();
-            $footer->disableEditingCheck();
-            $footer->disableCreatingCheck();
-        });
-
-        $form->saving(function (Form $form) {
-            $d = SMS::send([$form->phone_number], $form->message);
-            $sms_id = $d['data'][0]->id;
-            $form->sms_id = $sms_id;
-            $form->type = 'Outbox';
-            $form->status = 'pending';
-        });
-
         return $form;
     }
+
 }

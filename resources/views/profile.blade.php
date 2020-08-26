@@ -36,16 +36,16 @@
 <div class="search-container">
 	<div class="search-icon-container" style="float: right;">
         @guest
-        <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
+        <a href="{{url('login')}}" style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;">REGISTER</a>
         @else
-            <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
+            <a style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;" href="{{url('logout')}}">LOGOUT</a>
         @endguest
     </div>
 </div>
 </div>
 </header>
 
-<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px; min-height: 500px; background: #fff;margin-top: 5%; margin-bottom: 5%; border-radius: 6px;">
+<div class="coda-about__short-description" style="color: #111;font-size: 15px;padding: 10px;max-width: 755px; min-height: 500px; background: #fff;margin-top: 5%; margin-bottom: 5%;">
 
 <h3>Profile</h3>
 <hr>
@@ -59,8 +59,8 @@
     <div class="section">
         <h2 class="errorHeader">Sukses!</h2>
         <div class="container">
-            <div class="row" style="background: #fff">
-            <div class="col-sm-12" style="padding:20px; background: #fff">
+            <div class="row" style="background: #f8f8f8">
+            <div class="col-sm-12" style="padding:20px; background: #f8f8f8">
                 {{ \Illuminate\Support\Facades\Session::get('alert-success') }}
             </div>
             <div class="col-sm-9" style="padding:3px;">
@@ -108,7 +108,6 @@
         z-index: 20;
         overflow: hidden;
         box-shadow: none;
-        border: 1px solid #ddd;
     }
 </style>
 

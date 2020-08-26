@@ -17,11 +17,11 @@
             {{-- <p class="slogan-element">{{config('slogan')}}</p> --}}
 
         </div>
-        <div class="search-icon-container" style="float: right;">
+		<div class="search-icon-container" style="float: right;">
             @guest
-            <a href="{{url('login')}}" style="text-decoration: none; color: #fff; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #fff; font-size:12px;">REGISTER</a>
+            <a href="{{url('login')}}" style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;">LOGIN</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{url('register')}}" style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;">REGISTER</a>
             @else
-                <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; color: #fff; font-size:12px;" href="{{url('logout')}}">Logout</a>
+                <a style="text-decoration: none; color: #111; font-weight: 600; font-size:12px;" href="{{url('profile')}}">{{ Auth::user()->userid }}</a> | <a style="text-decoration: none; font-weight: 600; color: #111; font-size:12px;" href="{{url('logout')}}">LOGOUT</a>
             @endguest
         </div>
     </div>
@@ -34,14 +34,14 @@
     <div class="section">
         <h2 class="errorHeader">Upps...</h2>
         <div class="container">
-            <div class="row" style="background: red">
-            <div class="col-sm-12" style="padding:20px; background-color: red">
+            <div class="row" style="background: #f8f8f8">
+            <div class="col-sm-12" style="padding:20px; background-color: #f8f8f8">
                 {{ \Illuminate\Support\Facades\Session::get('error') }}
             </div>
             <div class="col-sm-9" style="padding:3px;">
             </div>
             <div class="col-sm-3" style="padding:10px;">
-                <a style="color:#111" class="btn btn-light btn-lg btn-block" id="myBtn" style="cursor: pointer;">Okay!</a>
+                <a style="color:#fff" class="btn btn-dark btn-lg btn-block" id="myBtn" style="cursor: pointer;">Okay!</a>
             </div>
             </div>
         </div>
@@ -71,10 +71,6 @@
         z-index: 20;
         overflow: hidden;
         box-shadow: none;
-        border: 1px solid #ddd;
-    }
-    img#payment-1, img#payment-2, img#payment-3, img#payment-4, img#payment-5, img#payment-6, img#payment-7, img#payment-8, img#payment-9, img#payment-10, img#payment-11, img#payment-12 {
-        filter: drop-shadow(3px 3px 2px #111);
     }
 </style>
 
@@ -85,9 +81,12 @@
 <div class="section voucher">
 
 @if (count($produkpluck) > 0)
-    <h5 style="color: #fff">1. Pilih Nominal</h5>
+    <h5 style="color: #111">1. Pilih Nominal</h5>
 @else
-    <h6 style="color: #fff; text-align: center; padding: 20px; font-style:italic;">Maaf, sementara item belum tersedia untuk produk ini...</h6>
+    <h6 style="color: #111; text-align: center; padding: 20px; font-style:italic;">Maaf, sementara item belum tersedia untuk produk ini...</h6>
+    <div style="text-align: center">
+        <a href="/"><input type="button" class="btn btn-dark btn-lg" value="< Kembali"></a>
+    </div>
 @endif
     
     @auth
@@ -111,7 +110,7 @@
         @php $i = 1; @endphp
         @foreach ($produkpluck as $cp)
             <li id="denomination" class="voucher-list-element" onclick="show{{$i}}();">
-                <a onclick="cekDenom(this);" id="{{$cp->id}}" code="{{$cp->code}}" style="cursor:pointer;">
+                <a tabindex="{{$i}}" onclick="cekDenom(this);" id="{{$cp->id}}" code="{{$cp->code}}" style="cursor:pointer;">
                     {{$cp->name}}
                     <span id="check-{{$i}}"> L </span>
                 </a>
@@ -122,28 +121,41 @@
     </ul>
     @endguest
 
+
+    {{-- <ul class="vocherSelectionList ul-denoms voucher-denom-container">
+        @php $i = 50; @endphp
+        @foreach ($payments as $cp)
+            <li id="denomination" class="voucher-list-element" onclick="show{{$i}}();">
+                <a tabindex="{{$i}}" onclick="cekDenom(this);" id="{{$cp->id}}" code="{{$cp->payment_code}}" style="cursor:pointer;">
+                    <img class="responsive" id="payment-4" src="{{url('storage')}}/{{$cp->payment_logo}}" alt="{{$cp->payment_name}}" title="{{$cp->payment_name}}" />
+                    {{$cp->mark_up_price}}
+                </a>
+            </li>
+        @php $i++; @endphp
+        @endforeach
+        <span id="id"></span>
+    </ul> --}}
+
+
 </div>
 
 
 <div class="section payment" id="form-payment" style="display: none;">
 
     @auth
-    <h5 style="color: #fff">2. Metode Pembayaran</h5>
+    <h5 style="color: #111">2. Metode Pembayaran</h5>
     <ul class="ul-paymentChannels">
         <li id="paymentChannel" class="payment-channel-element">
             <a markup="0" channel="0" class="payment-channel-link">
                 <span id="element-check-label-1" style="display: inline;"> L </span>
                 <div class="payment-channel-container">
                     <figure class="payment-logo-container" style="display: flex !important;">
-                        <img src="{{URL::asset('images/fav.ico')}}" height="50px;" width="50px;">
-                        Saldo Akun:<br> Rp {{ number_format(Auth::user()->balance, 0) }}
+                        Saldo: Rp {{ number_format(Auth::user()->balance, 0) }}
                     </figure>
                 </div>
-                <div class="payment-price-container">
+                <div class="payment-price-container" style="margin-top: -15px; padding-bottom: 20px;">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-memberr" style="color:#fff;"></span>
-                    </div>
-                    <div class="price pr" id="priceInfo"><span id="harga-memberr"></span>
+                        <span id="price-memberr" style="color:#222;"></span>
                     </div>
                 </div>
             </a>
@@ -152,7 +164,7 @@
     @endauth
 
     @guest
-    <h5 style="color: #fff">2. Metode Pembayaran</h5>
+    <h5 style="color: #111">2. Metode Pembayaran</h5>
 
     <ul class="ul-paymentChannels">
 
@@ -166,7 +178,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-bca" style="color:#fff;"></span>
+                        <span id="price-bca" style="color:#222;"></span>
                         <input id="total4" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$bca->payment_code}}"></span>
@@ -189,7 +201,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-mandiri" style="color:#fff;"></span>
+                        <span id="price-mandiri" style="color:#222;"></span>
                         <input id="total5" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$mandiri->payment_code}}"></span>
@@ -212,7 +224,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-bni" style="color:#fff;"></span>
+                        <span id="price-bni" style="color:#222;"></span>
                         <input id="total6" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$bni->payment_code}}"></span>
@@ -235,7 +247,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-bri" style="color:#fff;"></span>
+                        <span id="price-bri" style="color:#222;"></span>
                         <input id="total7" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$bri->payment_code}}"></span>
@@ -258,7 +270,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-ovo" style="color:#fff;"></span>
+                        <span id="price-ovo" style="color:#222;"></span>
                         <input id="total1" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$ovo->payment_code}}"></span>
@@ -281,7 +293,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-gopay" style="color:#fff;"></span>
+                        <span id="price-gopay" style="color:#222;"></span>
                         <input id="total8" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$gopay->payment_code}}"></span>
@@ -304,7 +316,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-indomaret" style="color:#fff;"></span>
+                        <span id="price-indomaret" style="color:#222;"></span>
                         <input id="total2" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$indomaret->payment_code}}"></span>
@@ -327,7 +339,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-alfamart" style="color:#fff;"></span>
+                        <span id="price-alfamart" style="color:#222;"></span>
                         <input id="total3" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$alfamart->payment_code}}"></span>
@@ -350,7 +362,7 @@
                 </div>
                 <div class="payment-price-container">
                     <div class="price_label" id="priceLabel">
-                        <span id="price-telkomsel" style="color:#fff;"></span>
+                        <span id="price-telkomsel" style="color:#222;"></span>
                         <input id="total9" type="hidden">
                     </div>
                     <div class="price pr" id="priceInfo"><span id="harga-{{$telkomsel->payment_code}}"></span>
@@ -370,13 +382,11 @@
 
 <div class="section buy default-template" id="form-buy" style="display: none;">
 
-    <h5 style="color: #fff">3. Lengkapi Form</h5>
-
-    <br>
+    <h5 style="color: #111">3. Lengkapi Form</h5>
 
     <div class="form" id="formSection">
 
-    <form id="FomOrder" name="FomOrder" action="{{url('order')}}" method="POST" onsubmit="return checkForm(this);" style="background: #19214b; padding: 20px;">
+    <form id="FomOrder" name="FomOrder" action="{{url('order')}}" method="POST" onsubmit="return checkForm(this);" style="background:#f8f8f8; padding: 20px;">
 
         {{ csrf_field() }}
         
@@ -452,7 +462,7 @@
 
         <div class="email-form-btn-group">
             <div class="loader" id="submit-loader"></div>
-            <input type="submit" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Beli Sekarang" style="background: #3a7bfc;">
+            <input type="submit" id="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Beli Sekarang">
         </div>
 
     </form>
@@ -465,11 +475,11 @@
     <div class="section">
         <h2 class="errorHeader">Upps...</h2>
         <div class="container">
-            <div class="row" style="background-color: red">
-            <div class="col-sm-12" style="padding:20px; background-color: red">
+            <div class="row" style="background-color: #f8f8f8">
+            <div class="col-sm-12" style="padding:20px; background-color: #f8f8f8">
                 <ul class="errorMessage__container" id="errorMessage">
                     {{$errors->first()}}<br><br>
-                    <li class="error-msg__element">Silahkan pilih nomor voucher</li>
+                    <li class="error-msg__element">Silahkan pilih nominal voucher</li>
                     <li class="error-msg__element">Silahkan pilih metode pembayaran</li>
                     <li class="error-msg__element">Silahkan isi User ID Game Anda</li>
                     <li class="error-msg__element">Silahkan isi alamat Email yang Anda pakai</li>
@@ -479,7 +489,7 @@
             <div class="col-sm-9" style="padding:3px;">
             </div>
             <div class="col-sm-3" style="padding:10px;">
-                <a style="color:#111" class="btn btn-light btn-lg btn-block" id="myBtn" style="cursor: pointer;">Ulangi</a>
+                <a style="color:#fff" class="btn btn-dark btn-lg btn-block" id="myBtn" style="cursor: pointer;">Ulangi</a>
             </div>
             </div>
         </div>
@@ -497,9 +507,11 @@
 
 {{-- <div id="overlay" class="overlay-element"></div> --}}
 
-</main>
 
-<article class="product__tag-line" style="color: #fff; font-size: 13px;">
+<br>
+
+@if (count($produkpluck) > 0)
+<article class="product__tag-line" style="color: #111; font-size: 13px;">
     <h6 style="font-weight: bold;">{{strtoupper($productByCode->name)}}</h6>
     {!! $productByCode->description !!}
     @if ($productByCode->ios_link != NULL)
@@ -511,8 +523,10 @@
         <img style="width:120px; padding-top: 5px;"src="{{URL::asset('images/google_play.png')}}" alt="Download on Google Play" title="Download on Google Play"></a>
     @endif
 </article>
+<br>
+@endif
 
-<br><br>
+</main>
 
 </div>
 

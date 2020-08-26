@@ -37,7 +37,7 @@ class HomeController extends Controller
             $PendingTransactionsRp = \App\Transactions::get()->where('status', '1')->sum('total');
 
             $row->column(3, new Widgets\InfoBox('Deposit Success', 'money', 'aqua', 'admin/deposit', 'Rp '.number_format($TotalDeposits, 0)));
-            $row->column(3, new Widgets\InfoBox('Bank Transfers', 'bank', 'blue', 'admin/bank', 'Rp '.number_format($TotalTansfers, 0)));
+            $row->column(3, new Widgets\InfoBox('Bank Transfers', 'bank', 'blue', 'admin/mutasi', 'Rp '.number_format($TotalTansfers, 0)));
             $row->column(3, new Widgets\InfoBox('Transactions Success', 'bar-chart', 'green', 'admin/transactions', 'Rp '.number_format($SuccessTransactionsRp, 0)));
             $row->column(3, new Widgets\InfoBox('Transactions Pending', 'history', 'yellow', 'admin/transactions', 'Rp '.number_format($PendingTransactionsRp, 0)));
         });

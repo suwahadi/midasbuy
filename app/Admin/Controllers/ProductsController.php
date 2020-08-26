@@ -37,13 +37,13 @@ class ProductsController extends AdminController
         $grid->column('description', 'Description')->display (function () {
             return str_limit(strip_tags($this->description), 420, '...');
         });
-        $grid->column('promo')->using([
-            'Yes' => 'YES',
-            'No' => 'NO',
-        ], 'Unknown')->dot([
-            'Yes' => 'success',
-            'No' => 'default',
-        ], 'warning');
+        // $grid->column('promo')->using([
+        //     'Yes' => 'YES',
+        //     'No' => 'NO',
+        // ], 'Unknown')->dot([
+        //     'Yes' => 'success',
+        //     'No' => 'default',
+        // ], 'warning');
         $grid->column('status')->using([
             0 => 'INACTIVE',
             1 => 'ACTIVE',
@@ -94,7 +94,7 @@ class ProductsController extends AdminController
         $form->text('ios_link', __('iOS Download'));
         $form->text('android_link', __('Android Download'));
         $form->ckeditor('description','Description');
-        $form->select('promo', 'Promo')->options(['No' => 'NO', 'Yes' => 'YES'])->default('No')->required();
+        // $form->select('promo', 'Promo')->options(['No' => 'NO', 'Yes' => 'YES'])->default('No')->required();
         $form->select('status', 'Status')->options([0 => 'INACTIVE', 1 => 'ACTIVE'])->default('1')->required();
 
         $form->tools(function (Form\Tools $tools) {
